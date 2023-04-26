@@ -2,6 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.0"
+gem "administrate"
 gem "bootsnap", require: false
 gem "devise"
 gem "cssbundling-rails"
