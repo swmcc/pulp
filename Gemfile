@@ -8,6 +8,7 @@ gem 'administrate'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
+gem 'devise-api', github: 'nejdetkadir/devise-api', branch: 'main'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
