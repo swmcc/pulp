@@ -2,10 +2,12 @@
 
 class AvatarUrl
   attr_reader :avatarable, :size
+
   def initialize(avatarable, size: 32)
     @avatarable = avatarable
     @size = size
   end
+
   def image_url
     name = ERB::Util.url_encode(avatarable.full_name)
     background = '#0084FF'

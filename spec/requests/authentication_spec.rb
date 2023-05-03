@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Authentication', type: :request do
@@ -26,7 +28,7 @@ RSpec.describe 'Authentication', type: :request do
 
       it 'authenticates the user' do
         follow_redirect!
-        expect(response.body).to include("Dashboard")
+        expect(response.body).to include('Dashboard')
         expect(controller.current_user).to eq(user)
       end
     end
