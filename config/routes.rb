@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :groups
   get 'dashboard' => 'dashboard#index'
   devise_for :users
   root 'welcome#index'
