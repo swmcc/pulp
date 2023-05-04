@@ -23,6 +23,19 @@ RSpec.describe 'Api Authentication', type: :request do
       it 'returns the user email' do
         expect(json['resource_owner']['email']).to eq(user.email)
       end
+
+      it 'returns an access-token' do
+        expect(json['token']).to be_present
+      end
+
+      it 'returns a token-type' do
+        expect(json['token_type']).to be_present
+        expect(json['token_type']).to eq('Bearer')
+      end
+
+      it 'returns a refresh token' do
+        expect(json['refresh_token']).to be_present
+      end
     end
 
     context 'when invalid params are sent' do

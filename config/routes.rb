@@ -9,6 +9,13 @@ Rails.application.routes.draw do
 
     root to: 'users#index'
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :groups
+    end
+  end
+
   resources :groups
   get 'dashboard' => 'dashboard#index'
   devise_for :users
