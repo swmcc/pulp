@@ -8,4 +8,8 @@ FactoryBot.define do
     refresh_token { Faker::Alphanumeric.alphanumeric(number: 10) }
     expires_in { 3600 }
   end
+
+  trait :expired do
+    created_at { 2.hours.ago }
+  end
 end

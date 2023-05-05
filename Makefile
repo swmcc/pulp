@@ -4,13 +4,16 @@ branch:
 	echo $(CURRENT_BRANCH)
 
 local.run:
-	./bin/dev 
+	./bin/dev
 
 local.setup:
-	bundle install 
+	bundle install
 
 local.tests:
 	rspec
+
+local.tests.watch:
+	find app/ spec/ | entr -s 'rspec'
 
 production.console:
 
@@ -23,4 +26,3 @@ production.setup:
 production.deploy:
 
 production.logs:
-

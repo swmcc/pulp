@@ -317,7 +317,7 @@ Devise.setup do |config|
     api.access_token.generator = ->(_resource_owner) { Devise.friendly_token(60) }
 
     # Refresh Token
-    api.refresh_token.enabled = true
+    api.refresh_token.enabled = false
     api.refresh_token.expires_in = 1.week
     api.refresh_token.generator = ->(_resource_owner) { Devise.friendly_token(60) }
     api.refresh_token.expires_in_infinite = ->(_resource_owner) { false }

@@ -32,10 +32,6 @@ RSpec.describe 'Api Authentication', type: :request do
         expect(json['token_type']).to be_present
         expect(json['token_type']).to eq('Bearer')
       end
-
-      it 'returns a refresh token' do
-        expect(json['refresh_token']).to be_present
-      end
     end
 
     context 'when invalid params are sent' do
@@ -49,9 +45,7 @@ RSpec.describe 'Api Authentication', type: :request do
         expect(json['error']).to be_present
       end
     end
-  end
 
-  describe 'POST /users/tokens/sign_in' do
     context 'when valid params are sent' do
       before { post '/users/tokens/sign_in', params: params }
 
