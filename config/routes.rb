@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users
     resources :groups
     resources :links
+    resources :devise_api_tokens
 
     root to: 'users#index'
   end
