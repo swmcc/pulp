@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_03_205133) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_200459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "commits", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "repo_name"
+    t.string "sha"
+    t.string "message"
+    t.datetime "commit_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "devise_api_tokens", force: :cascade do |t|
     t.string "resource_owner_type", null: false
