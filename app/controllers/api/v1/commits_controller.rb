@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 module Api
@@ -11,6 +10,25 @@ module Api
           render json: commit, status: :created
         else
           render json: { errors: commit.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
+
+      def grouped_by_repo
+        grouped_commits = Commit.grouped_by_repo_and_date
+        render json: { data: grouped_commits.to_json }, status: :ok
+      end
+
+      def by_date
+        date = begin
+          params[:date].to_date
+        rescue StandardError
+          nil
+        end
+        if date
+          commits = Commit.where(commit_date: date.beginning_of_day..date.end_of_day)
+          render json: { data: commits }, status: :ok
+        else
+          render json: { error: 'Invalid date' }, status: :bad_request
         end
       end
 
