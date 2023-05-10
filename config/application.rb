@@ -35,8 +35,7 @@ module Pulp
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'theonlystephen-com.vercel.app', 'changelog.swm.cc', 'changelog.theonlystephen.com', 'changelogs.theonlystephen.com', 'changelogs.swm.cc' # Replace with your Vercel domain
-
+        origins '*'
         resource '*',
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
