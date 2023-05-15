@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         resources :groups
         get 'commits/grouped_by_repo', to: 'commits#grouped_by_repo'
         get 'commits/by_date/:date', to: 'commits#by_date'
+        get 'links/search', to: 'links#search'
     end
   end
 
