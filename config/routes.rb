@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
         resources :commits, only: [:create]
+        resources :links, only: [:create]
         resources :groups
         get 'commits/grouped_by_repo', to: 'commits#grouped_by_repo'
         get 'commits/by_date/:date', to: 'commits#by_date'
