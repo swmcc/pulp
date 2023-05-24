@@ -13,6 +13,10 @@ module Api
         render json: { error: 'Not Authorised' }, status: :unauthorized
       end
 
+      def not_found
+        render json: { error: 'Resource not found' }, status: :not_found
+      end
+
       private
 
       def extract_token_from_header
