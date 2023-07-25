@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore zed files
+/.zed
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

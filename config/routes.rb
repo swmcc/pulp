@@ -7,20 +7,21 @@ Rails.application.routes.draw do
     resources :groups
     resources :links
     resources :devise_api_tokens
+    resources :thoughts
 
     root to: 'users#index'
   end
 
   namespace :api do
     namespace :v1 do
-        resources :commits, only: [:create]
-        resources :links, only: [:create]
-        resources :groups
-        get 'commits/grouped_by_repo', to: 'commits#grouped_by_repo'
-        get 'commits/by_date/:date', to: 'commits#by_date'
-        get 'links/search', to: 'links#search'
+      resources :commits, only: [:create]
+      resources :links, only: [:create]
+      resources :groups
+      get 'commits/grouped_by_repo', to: 'commits#grouped_by_repo'
+      get 'commits/by_date/:date', to: 'commits#by_date'
+      get 'links/search', to: 'links#search'
 
-        match "*unmatched_route", to: "base#not_found", via: :all
+      match '*unmatched_route', to: 'base#not_found', via: :all
     end
   end
 
