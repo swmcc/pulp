@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get 'commits/grouped_by_repo', to: 'commits#grouped_by_repo'
       get 'commits/by_date/:date', to: 'commits#by_date'
       get 'links/search', to: 'links#search'
+      get 'thoughts/weekly', to: 'thoughts#weekly' 
 
       match '*unmatched_route', to: 'base#not_found', via: :all
     end
